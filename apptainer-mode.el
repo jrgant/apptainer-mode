@@ -25,6 +25,23 @@
 
 ;;; Code:
 
+(require 'rx)
+
+(defgroup apptainer nil
+  "Major mode for editing Apptainer definition files."
+  :prefix "apptainer-"
+  :group 'languages)
+
+(defconst apptainer--font-lock-defaults
+  `((("^[[:alnum:]]+:" 0 font-lock-keyword-face)
+     ("^%[[:alnum:]]+" 0 font-lock-constant-face)
+     ("#.*" 0 font-lock-comment-face))))
+
+;;;###autoload
+(define-derived-mode apptainer-mode sh-mode "Apptainer"
+  "Major mode for editing Apptainer definition files."
+  (setq font-lock-defaults apptainer--font-lock-defaults))
+
 (provide 'apptainer-mode)
 
 ;;; apptainer-mode.el ends here
