@@ -32,9 +32,26 @@
   :prefix "apptainer-"
   :group 'languages)
 
+(defgroup apptainer-faces nil
+  "Faces used in Apptainer mode."
+  :group 'apptainer
+  :group 'faces)
+
+(defconst apptainer-header-keyword-face 'apptainer-header-keyword-face)
+(defface apptainer-header-keyword-face
+  '((t :inherit font-lock-keyword-face :weight bold))
+  "Face for Apptainer headers."
+  :group 'apptainer-faces)
+
+(defconst apptainer-section-face 'apptainer-section-face)
+(defface apptainer-section-face
+  '((t :inherit font-lock-constant-face :weight bold))
+  "Face for Apptainer sections."
+  :group 'apptainer-faces)
+
 (defconst apptainer--font-lock-defaults
-  `((("^[[:alnum:]]+:" 0 font-lock-keyword-face)
-     ("^%[[:alnum:]]+" 0 font-lock-constant-face)
+  `((("^[[:alnum:]]+:" 0 apptainer-header-keyword-face)
+     ("^%[[:alnum:]]+" 0 apptainer-section-face)
      ("#.*" 0 font-lock-comment-face))))
 
 ;;;###autoload
