@@ -37,6 +37,9 @@
   :group 'apptainer
   :group 'faces)
 
+
+;;;; Define faces
+
 (defconst apptainer-header-keyword-face 'apptainer-header-keyword-face)
 (defface apptainer-header-keyword-face
   '((t :inherit font-lock-keyword-face :weight bold))
@@ -55,11 +58,15 @@
   "Face for URLs."
   :group 'apptainer-faces)
 
+
+;;;; Define regexes and font-locking
+
 (defconst apptainer--font-lock-defaults
   `((("^[[:alnum:]]+:" 0 apptainer-header-keyword-face)
      ("^%[[:alnum:]]+" 0 apptainer-section-face)
      ("#.*" 0 font-lock-comment-face)
      ("\\(https\\|http\\)://\\S-+" 0 apptainer-link-face))))
+
 
 ;;;###autoload
 (define-derived-mode apptainer-mode sh-mode "Apptainer"
