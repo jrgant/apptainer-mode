@@ -49,10 +49,17 @@
   "Face for Apptainer sections."
   :group 'apptainer-faces)
 
+(defconst apptainer-link-face 'apptainer-link-face)
+(defface apptainer-link-face
+  '((t :foreground "PowderBlue" :underline t))
+  "Face for URLs."
+  :group 'apptainer-faces)
+
 (defconst apptainer--font-lock-defaults
   `((("^[[:alnum:]]+:" 0 apptainer-header-keyword-face)
      ("^%[[:alnum:]]+" 0 apptainer-section-face)
-     ("#.*" 0 font-lock-comment-face))))
+     ("#.*" 0 font-lock-comment-face)
+     ("\\(https\\|http\\)://\\S-+" 0 apptainer-link-face))))
 
 ;;;###autoload
 (define-derived-mode apptainer-mode sh-mode "Apptainer"
