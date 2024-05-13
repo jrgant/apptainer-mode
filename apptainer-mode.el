@@ -1,4 +1,4 @@
-;;; apptainer-mode.el --- Major mode for editing Apptainer definition files -*- lexical-binding: t; -*-
+;;; apptainer-mode.el --- Major mode for Apptainer definition files -*- lexical-binding: t; -*-
 
 ;; Copyright (c) 2024 Jason Gantenberg
 ;; Author: Jason Gantenberg <jason.gantenberg@gmail.com>
