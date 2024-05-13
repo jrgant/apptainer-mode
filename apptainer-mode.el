@@ -88,7 +88,7 @@ underscores separating words."
      ("\\(https\\|http\\)://\\S-+" 0 apptainer-link-face)
      ("\\(\\$\\)" 0 apptainer-retriever-face)
      ("\\\\$" 0 apptainer-linebreak-face)
-     ("[A-Z]+_\\|[A-Z]+" 0 apptainer-envvar-face))))
+     ("[A-Z]+\\(_\\|[A-Z]+\\)" 0 apptainer-envvar-face))))
 
 
 ;;;###autoload
