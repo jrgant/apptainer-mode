@@ -54,7 +54,7 @@
 
 (defconst apptainer-link-face 'apptainer-link-face)
 (defface apptainer-link-face
-  '((t :foreground "PowderBlue" :underline t))
+  '((t :inherit default :box t))
   "Face for URLs."
   :group 'apptainer-faces)
 
