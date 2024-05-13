@@ -73,7 +73,9 @@
 (defconst apptainer-envvar-face 'apptainer-envvar-face)
 (defface apptainer-envvar-face
   '((t :inherit font-lock-variable-name-face))
-  "Face for APPTAINER environmental variables."
+  "Face for environmental variables.
+Assumes environment or exported variables are in all caps, possibly with
+underscores separating words."
   :group 'apptainer-faces)
 
 
@@ -86,7 +88,7 @@
      ("\\(https\\|http\\)://\\S-+" 0 apptainer-link-face)
      ("\\(\\$\\)" 0 apptainer-retriever-face)
      ("\\\\$" 0 apptainer-linebreak-face)
-     ("APPTAINER_[[:alpha:]]+" 0 apptainer-envvar-face))))
+     ("[A-Z]+_\\|[A-Z]+" 0 apptainer-envvar-face))))
 
 
 ;;;###autoload
