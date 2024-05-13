@@ -6,4 +6,7 @@ A simple major mode for [Apptainer definition files](https://apptainer.org/docs/
 
 Derived from `sh-mode`, `apptainer-mode` implements basic font-locking for definition (`.def`) file headers and section labels.
 
-![](example.png)
+<br />
+<p align="center">
+  <img src="example.png" width="60%" />
+</p>
