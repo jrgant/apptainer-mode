@@ -58,6 +58,24 @@
   "Face for URLs."
   :group 'apptainer-faces)
 
+(defconst apptainer-retriever-face 'apptainer-retriever-face)
+(defface apptainer-retriever-face
+  '((t :inherit font-lock-builtin-face :slant italic))
+  "Face for `$` indicating environmental variable retrieval."
+  :group 'apptainer-faces)
+
+(defconst apptainer-linebreak-face 'apptainer-linebreak-face)
+(defface apptainer-linebreak-face
+  '((t :inherit apptainer-header-keyword-face :weight normal))
+  "Face for linebreaks."
+  :group 'apptainer-faces)
+
+(defconst apptainer-envvar-face 'apptainer-envvar-face)
+(defface apptainer-envvar-face
+  '((t :inherit font-lock-variable-name-face))
+  "Face for APPTAINER environmental variables."
+  :group 'apptainer-faces)
+
 
 ;;;; Define regexes and font-locking
 
@@ -65,7 +83,10 @@
   `((("^[[:alnum:]]+:" 0 apptainer-header-keyword-face)
      ("^%[[:alnum:]]+" 0 apptainer-section-face)
      ("#.*" 0 font-lock-comment-face)
-     ("\\(https\\|http\\)://\\S-+" 0 apptainer-link-face))))
+     ("\\(https\\|http\\)://\\S-+" 0 apptainer-link-face)
+     ("\\(\\$\\)" 0 apptainer-retriever-face)
+     ("\\\\$" 0 apptainer-linebreak-face)
+     ("APPTAINER_[[:alpha:]]+" 0 apptainer-envvar-face))))
 
 
 ;;;###autoload
