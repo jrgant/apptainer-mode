@@ -1,6 +1,7 @@
 # apptainer-mode
 
-![Release](https://img.shields.io/badge/Release-0.1-green)
+![Release](https://img.shields.io/badge/Release-v0.1-green)
+
 
 A simple major mode for [Apptainer definition files](https://apptainer.org/docs/user/main/definition_files.html).
 
