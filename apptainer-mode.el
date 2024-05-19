@@ -26,7 +26,6 @@
 ;;; Code:
 
 (require 'rx)
-(require 'sh-script)
 
 (defgroup apptainer nil
   "Major mode for editing Apptainer definition files."
