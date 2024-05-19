@@ -26,6 +26,7 @@
 ;;; Code:
 
 (require 'rx)
+(require 'sh-script)
 
 (defgroup apptainer nil
   "Major mode for editing Apptainer definition files."
@@ -64,38 +65,15 @@
   "Face for `$` indicating environmental variable retrieval."
   :group 'apptainer-faces)
 
-(defconst apptainer-linebreak-face 'apptainer-linebreak-face)
-(defface apptainer-linebreak-face
-  '((t :inherit apptainer-header-keyword-face :weight normal))
-  "Face for linebreaks."
-  :group 'apptainer-faces)
-
-(defconst apptainer-envvar-face 'apptainer-envvar-face)
-(defface apptainer-envvar-face
-  '((t :inherit font-lock-variable-name-face))
-  "Face for environmental variables.
-Assumes environment or exported variables are in all caps, possibly with
-underscores separating words."
-  :group 'apptainer-faces)
-
-
-;;;; Define regexes and font-locking
-
-(defconst apptainer--font-lock-defaults
-  `((("^[[:alnum:]]+:" 0 apptainer-header-keyword-face)
-     ("^%[[:alnum:]]+" 0 apptainer-section-face)
-     ("#.*" 0 font-lock-comment-face)
-     ("\\(https\\|http\\)://\\S-+" 0 apptainer-link-face)
-     ("\\(\\$\\)" 0 apptainer-retriever-face)
-     ("\\\\$" 0 apptainer-linebreak-face)
-     ("[A-Z]+\\(_\\|[A-Z]+\\)" 0 apptainer-envvar-face))))
-
 
 ;;;###autoload
 (define-derived-mode apptainer-mode sh-mode "Apptainer"
   "Major mode for editing Apptainer definition files."
-  (setq font-lock-defaults apptainer--font-lock-defaults))
+  (font-lock-add-keywords 'apptainer-mode
+                          '(("^[[:alnum:]]+:" . apptainer-header-keyword-face)
+                            ("^%[[:alnum:]]+" . apptainer-section-face)
+                            ("\\(https\\|http\\)://\\S-+" . apptainer-link-face)
+                            ("\\(\\$\\)" . apptainer-retriever-face))))
 
 (provide 'apptainer-mode)
-
 ;;; apptainer-mode.el ends here
