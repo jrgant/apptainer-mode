@@ -65,15 +65,21 @@
   :group 'apptainer-faces)
 
 
+;;;; Define font-lock keywords
+
+(defconst apptainer-mode-font-lock-keywords
+  '(("^[[:alnum:]]+:" . apptainer-header-keyword-face)
+    ("^%[[:alnum:]]+" . apptainer-section-face)
+    ("\\(\\(https\\|http\\)://\\S-+\\)\\|\\(\\S-+\\@\\S-+\\.[[:alpha:]]+\\)" . apptainer-link-face)
+    ("\\(\\$\\)" . apptainer-retriever-face)))
+
+
+;;;; Define mode
+
 ;;;###autoload
 (define-derived-mode apptainer-mode sh-mode "Apptainer"
   "Major mode for editing Apptainer definition files."
-  (font-lock-add-keywords
-   'apptainer-mode
-   '(("^[[:alnum:]]+:" . apptainer-header-keyword-face)
-     ("^%[[:alnum:]]+" . apptainer-section-face)
-     ("\\(\\(https\\|http\\)://\\S-+\\)\\|\\(\\S-+\\@\\S-+\\.[[:alpha:]]+\\)" . apptainer-link-face)
-     ("\\(\\$\\)" . apptainer-retriever-face))))
+  (font-lock-add-keywords 'apptainer-mode apptainer-mode-font-lock-keywords))
 
 (provide 'apptainer-mode)
 ;;; apptainer-mode.el ends here
