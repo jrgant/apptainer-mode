@@ -68,11 +68,12 @@
 ;;;###autoload
 (define-derived-mode apptainer-mode sh-mode "Apptainer"
   "Major mode for editing Apptainer definition files."
-  (font-lock-add-keywords 'apptainer-mode
-                          '(("^[[:alnum:]]+:" . apptainer-header-keyword-face)
-                            ("^%[[:alnum:]]+" . apptainer-section-face)
-                            ("\\(https\\|http\\)://\\S-+" . apptainer-link-face)
-                            ("\\(\\$\\)" . apptainer-retriever-face))))
+  (font-lock-add-keywords
+   'apptainer-mode
+   '(("^[[:alnum:]]+:" . apptainer-header-keyword-face)
+     ("^%[[:alnum:]]+" . apptainer-section-face)
+     ("\\(\\(https\\|http\\)://\\S-+\\)\\|\\(\\S-+\\@\\S-+\\.[[:alpha:]]+\\)" . apptainer-link-face)
+     ("\\(\\$\\)" . apptainer-retriever-face))))
 
 (provide 'apptainer-mode)
 ;;; apptainer-mode.el ends here
