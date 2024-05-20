@@ -40,25 +40,20 @@
 
 ;;;; Define faces
 
-(defconst apptainer-header-keyword-face 'apptainer-header-keyword-face)
 (defface apptainer-header-keyword-face
   '((t :inherit font-lock-keyword-face :weight bold))
   "Face for Apptainer headers."
   :group 'apptainer-faces)
 
-(defconst apptainer-section-face 'apptainer-section-face)
 (defface apptainer-section-face
   '((t :inherit font-lock-constant-face :weight bold))
   "Face for Apptainer sections."
   :group 'apptainer-faces)
 
-(defconst apptainer-link-face 'apptainer-link-face)
-(defface apptainer-link-face
   '((t :inherit default :box t))
   "Face for URLs."
   :group 'apptainer-faces)
 
-(defconst apptainer-retriever-face 'apptainer-retriever-face)
 (defface apptainer-retriever-face
   '((t :inherit font-lock-builtin-face :slant italic))
   "Face for `$` indicating environmental variable retrieval."
@@ -68,10 +63,10 @@
 ;;;; Define font-lock keywords
 
 (defconst apptainer-mode-font-lock-keywords
-  '(("^[[:alnum:]]+:" . apptainer-header-keyword-face)
-    ("^%[[:alnum:]]+" . apptainer-section-face)
+  '(("^[[:alnum:]]+:" . 'apptainer-header-keyword-face)
+    ("^%[[:alnum:]]+" . 'apptainer-section-face)
     ("\\(\\(https\\|http\\)://\\S-+\\)\\|\\(\\S-+\\@\\S-+\\.[[:alpha:]]+\\)" . apptainer-link-face)
-    ("\\(\\$\\)" . apptainer-retriever-face)))
+    ("\\(\\$\\)" . 'apptainer-retriever-face)))
 
 
 ;;;; Define mode
