@@ -40,10 +40,12 @@
 
 ;;;; Define variables
 
-(defvar apptainer-box-links nil
+(defvar apptainer-boxed-links nil
    "Whether to draw a box around URLs in Apptainer files.
 Defaults to non-nil. If nil, URLs will be underlined.")
 
+(defvar apptainer-boxed-sections nil
+  "Whether to draw a box around section headers in Apptainer files.")
 
 ;;;; Define faces
 
@@ -54,7 +56,12 @@ Defaults to non-nil. If nil, URLs will be underlined.")
 
 (defface apptainer-section-face
   '((t :inherit font-lock-constant-face :weight bold))
-  "Face for Apptainer sections."
+  "Face for Apptainer section headings."
+  :group 'apptainer-faces)
+
+(defface apptainer-boxed-section-face
+  '((t :inherit apptainer-section-face :box t))
+  "Face for boxed Apptainer section headings."
   :group 'apptainer-faces)
 
 (defface apptainer-box-link-face
@@ -75,7 +82,8 @@ Defaults to non-nil. If nil, URLs will be underlined.")
 
 ;;;; Define font-lock keywords
 (defconst apptainer-link-face
-  (if apptainer-box-links 'apptainer-box-link-face 'apptainer-underline-link-face))
+  (if apptainer-boxed-links 'apptainer-boxed-link-face 'apptainer-underline-link-face))
+
 
 (defconst apptainer-mode-font-lock-keywords
   '(("^[[:alnum:]]+:" . 'apptainer-header-keyword-face)
