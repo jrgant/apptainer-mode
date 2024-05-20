@@ -77,7 +77,7 @@ Defaults to non-nil. If nil, URLs will be underlined.")
   :group 'apptainer-faces)
 
 (defface apptainer-filled-section-face
-  '((t :inherit apptainer-boxed-section-face :inverse-video t))
+  '((t :inherit apptainer-section-face :inverse-video t))
   "Face for filled Apptainer section headings."
   :group 'apptainer-faces)
 
