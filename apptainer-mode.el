@@ -89,7 +89,8 @@ Defaults to non-nil. If nil, URLs will be underlined.")
   :group 'apptainer-faces)
 
 
-;;;; Define font-lock keywords
+;;;; Define font-lock keywords and set face options
+
 (defconst apptainer-link-face
   (if apptainer-boxed-links 'apptainer-boxed-link-face 'apptainer-underline-link-face))
 
