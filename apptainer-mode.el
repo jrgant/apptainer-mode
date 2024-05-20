@@ -50,6 +50,7 @@ Defaults to non-nil. If nil, URLs will be underlined.")
 (defvar apptainer-filled-sections nil
   "Whether to fill section headers in Apptainer files.")
 
+
 ;;;; Define faces
 
 (defface apptainer-header-keyword-face
