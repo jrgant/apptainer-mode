@@ -50,11 +50,19 @@ Defaults to non-nil. If nil, URLs will be underlined.")
 (defvar apptainer-filled-sections nil
   "Whether to fill section headers in Apptainer files.")
 
+(defvar apptainer-filled-headers nil
+  "Whether to fill header keywords in Apptainer files.")
+
 
 ;;;; Define faces
 
 (defface apptainer-header-keyword-face
   '((t :inherit font-lock-keyword-face :weight bold))
+  "Face for Apptainer headers."
+  :group 'apptainer-faces)
+
+(defface apptainer-filled-header-keyword-face
+  '((t :inherit font-lock-keyword-face :inverse-video t))
   "Face for Apptainer headers."
   :group 'apptainer-faces)
 
@@ -91,6 +99,10 @@ Defaults to non-nil. If nil, URLs will be underlined.")
 
 ;;;; Define font-lock keywords and set face options
 
+(defconst apptainer-header-keyword-face
+  (if apptainer-filled-headers
+      'apptainer-filled-header-keyword-face 'apptainer-header-keyword-face))
+
 (defconst apptainer-link-face
   (if apptainer-boxed-links 'apptainer-boxed-link-face 'apptainer-underline-link-face))
 
@@ -101,7 +113,7 @@ Defaults to non-nil. If nil, URLs will be underlined.")
       (if apptainer-filled-sections 'apptainer-filled-section-face 'apptainer-section-face))))
 
 (defconst apptainer-mode-font-lock-keywords
-  '(("^[[:alnum:]]+:" . 'apptainer-header-keyword-face)
+  '(("^[[:alnum:]]+:" . apptainer-header-keyword-face)
     ("^%[[:alnum:]]+" . apptainer-section-face)
     ("\\(\\(https\\|http\\)://\\S-+\\)\\|\\(\\S-+\\@\\S-+\\.[[:alpha:]]+\\)" . apptainer-link-face)
     ("\\(\\$\\)" . 'apptainer-retriever-face)))
