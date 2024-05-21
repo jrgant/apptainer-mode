@@ -20,7 +20,7 @@ To download the **release** version, download it from the Releases section and u
 
 To download the **development** version, run the following snippet, filling in the desired destination path:
 
-``` emacs-lisp
+``` bash
 git clone https://github.com/jrgant/apptainer-mode </path/to/destination>
 ```
 
