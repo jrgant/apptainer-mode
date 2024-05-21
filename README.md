@@ -33,3 +33,21 @@ In either case, add `apptainer-mode` using one of the following:
 (use-package
   :load-path "/path/to/apptainer-mode/")
 ```
+
+
+## Options
+
+The user can set a handful of variables to tweak font-locking in `.def` files. These variables primarily consist of flags that allow users to box or fill header keywords and section headers. `apptainer-mode` will do some rudimentary checking for conflicting face specifications.
+
+All of the variables listed below default to `nil`.
+
+|                             |                                                                     |
+|:----------------------------|:--------------------------------------------------------------------|
+| `apptainer-boxed-headers`   | Non-nil draws a box around header keywords                          |
+| `apptainer-filled-headers`  | Non-nil sets a background fill on header keywords                   |
+| `apptainer-boxed-sections`  | Non-nil draws a box around section headers                          |
+| `apptainer-filled-sections` | Non-nil sets a background fill on header keywords                   |
+| `apptainer-boxed-faces`     | Non-nil boxes header keywords and section headers                   |
+| `apptainer-filled-faces`    | Non-nil sets background fill on header keywords and section headers |
+| `apptainer-boxed-links`     | Non-nil draws a box around URLs and email addresses                 |
+
