@@ -140,16 +140,16 @@ Defaults to non-nil. If nil, URLs will be underlined.")
 (defconst apptainer-header-keyword-face
   (if (or apptainer-boxed-headers apptainer-boxed-faces)
       'apptainer-boxed-header-keyword-face
-    (or apptainer-filled-headers apptainer-filled-faces
+    (or apptainer-filled-headers apptainer-filled-faces)
         'apptainer-filled-header-keyword-face
-        'apptainer-header-keyword-face)))
+        'apptainer-header-keyword-face))
 
 (defconst apptainer-section-face
   (if (or apptainer-boxed-sections apptainer-boxed-faces)
       'apptainer-boxed-section-face
-    (or apptainer-filled-sections apptainer-filled-faces
+    (or apptainer-filled-sections apptainer-filled-faces)
         'apptainer-filled-section-face
-        'apptainer-section-face)))
+        'apptainer-section-face))
 
 (defconst apptainer-link-face
   (if apptainer-boxed-links 'apptainer-boxed-link-face 'apptainer-underline-link-face))
