@@ -1,6 +1,6 @@
 # apptainer-mode
 
-![Release](https://img.shields.io/badge/Release-v0.1-green)
+![Release](https://img.shields.io/badge/Release-v0.2-green)
 ![Status](https://img.shields.io/badge/Status-Developing-orange)
 ![Dev](https://img.shields.io/badge/Dev-main-blue)
 
