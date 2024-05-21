@@ -61,3 +61,9 @@ If you use the `load-file` method above, set these variables before loading the 
       apptainer-boxed-sections t)
 ```
 
+| Boxed Faces                           | Filled Faces                           |
+|:-------------------------------------:|:--------------------------------------:|
+| <img src="example-boxed-faces.png" /> | <img src="example-filled-faces.png" /> |
+
+
+
