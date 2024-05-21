@@ -40,6 +40,9 @@
 
 ;;;; Define variables
 
+(defvar apptainer-boxed-headers nil
+  "Whether to draw a box around header keywords in Apptainer files.")
+
 (defvar apptainer-filled-headers nil
   "Whether to fill header keywords in Apptainer files.")
 
@@ -59,6 +62,11 @@ Defaults to non-nil. If nil, URLs will be underlined.")
 (defface apptainer-header-keyword-face
   '((t :inherit font-lock-keyword-face :weight bold))
   "Face for Apptainer headers."
+  :group 'apptainer-faces)
+
+(defface apptainer-boxed-header-keyword-face
+  '((t :inherit apptainer-header-keyword-face :box t))
+  "Face for boxed Apptainer headers."
   :group 'apptainer-faces)
 
 (defface apptainer-filled-header-keyword-face
@@ -100,8 +108,11 @@ Defaults to non-nil. If nil, URLs will be underlined.")
 ;;;; Define font-lock keywords and set face options
 
 (defconst apptainer-header-keyword-face
-  (if apptainer-filled-headers
-      'apptainer-filled-header-keyword-face 'apptainer-header-keyword-face))
+  (if (and apptainer-boxed-headers apptainer-filled-headers)
+      (error "Can have only one of apptainer-boxed-headers or apptainer-filled-headers set")
+    (if apptainer-boxed-headers 'apptainer-boxed-header-keyword-face
+      (if apptainer-filled-headers 'apptainer-filled-header-keyword-face
+        'apptainer-header-keyword-face))))
 
 (defconst apptainer-link-face
   (if apptainer-boxed-links 'apptainer-boxed-link-face 'apptainer-underline-link-face))
