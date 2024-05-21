@@ -29,7 +29,7 @@ In either case, add `apptainer-mode` using one of the following:
 ``` emacs-lisp
 (load-file "/path/to/apptainer-mode.el")
 
-;; OR
+;; OR, if you use `use-package`
 (use-package
   :load-path "/path/to/apptainer-mode/")
 ```
