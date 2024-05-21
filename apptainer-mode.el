@@ -46,15 +46,17 @@
 (defvar apptainer-filled-headers nil
   "Whether to fill header keywords in Apptainer files.")
 
-(defvar apptainer-boxed-links nil
-   "Whether to draw a box around URLs in Apptainer files.
-Defaults to non-nil. If nil, URLs will be underlined.")
-
 (defvar apptainer-boxed-sections nil
   "Whether to draw a box around section headers in Apptainer files.")
 
 (defvar apptainer-filled-sections nil
   "Whether to fill section headers in Apptainer files.")
+
+
+(defvar apptainer-boxed-links nil
+   "Whether to draw a box around URLs in Apptainer files.
+Defaults to non-nil. If nil, URLs will be underlined.")
+
 
 
 ;;;; Define faces
