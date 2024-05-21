@@ -51,7 +51,7 @@ All of the variables listed below default to `nil`.
 | `apptainer-filled-faces`    | Non-nil sets background fill on both header keywords and section headers |
 | `apptainer-boxed-links`     | Non-nil draws a box around URLs and email addresses                      |
 
-Set these before loading the package, if you use the `load-file` method. If you use `use-package`, set the variable in the `:init` section.
+If you use the `load-file` method above, set these variables before loading the package. If you use `use-package`, set the variable in the `:init` section.
 
 ``` emacs-lisp
 (setq apptainer-boxed-faces t)
