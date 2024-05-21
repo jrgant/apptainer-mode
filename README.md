@@ -57,7 +57,7 @@ If you use the `load-file` method above, set these variables before loading the 
 (setq apptainer-boxed-faces t)
 
 ;; is the same as
-(setq apptainer-boxed-hears t
+(setq apptainer-boxed-headers t
       apptainer-boxed-sections t)
 ```
 
