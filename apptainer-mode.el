@@ -115,30 +115,6 @@ Defaults to nil.")
   :group 'apptainer-faces)
 
 
-;;;; Define functions
-
-(defun apptainer--check-face-conflicts ()
-  "Check for conflicting Apptainer face settings."
-  (if (or (and apptainer-boxed-headers (or apptainer-filled-headers apptainer-filled-faces)))
-      (error "If \"apptainer-boxed-headers\" is non-nil, both \"apptainer-filled-headers\" and \"apptainer-filled-faces\" must be nil")
-    nil)
-  (if (or (and apptainer-boxed-sections (or apptainer-filled-sections apptainer-filled-faces)))
-      (error "If \"apptainer-boxed-sections\" is non-nil, both \"apptainer-filled-sections\" and \"apptainer-filled-faces\" must be nil")
-    nil)
-  (if (or (and apptainer-filled-headers (or apptainer-boxed-headers apptainer-boxed-faces)))
-      (error "If \"apptainer-filled-headers\" is non-nil, both \"apptainer-boxed-headers\" and \"apptainer-boxed-faces\" must be nil")
-    nil)
-  (if (or (and apptainer-filled-sections (or apptainer-boxed-sections apptainer-boxed-faces)))
-      (error "If \"apptainer-filled-sections\" is non-nil, both \"apptainer-boxed-sections\" and \"apptainer-boxed-faces\" must be nil")
-    nil)
-  (if (and apptainer-boxed-faces apptainer-filled-faces)
-      (error "If \"apptainer-boxed-faces\" is non-nil, \"apptainer-filled-faces\" must be nil, or vice versa")
-    nil))
-
-
-;;;; Define font-lock keywords and set face options
-
-(apptainer--check-face-conflicts)
 
 (defconst apptainer-header-keyword-face
   (if (or apptainer-boxed-headers apptainer-boxed-faces)
