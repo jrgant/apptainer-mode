@@ -41,26 +41,29 @@
 ;;;; Define variables
 
 (defvar apptainer-boxed-headers nil
-  "Whether to draw a box around header keywords in Apptainer files.")
+  "Draw a box around header keywords in Apptainer definition files?
+Defaults to nil.")
 
 (defvar apptainer-filled-headers nil
-  "Whether to fill header keywords in Apptainer files.")
+  "Fill header keywords in Apptainer definition files? Defaults to nil.")
 
 (defvar apptainer-boxed-sections nil
-  "Whether to draw a box around section headers in Apptainer files.")
+  "Draw a box around section headers in Apptainer definition files?
+Defaults to nil.")
 
 (defvar apptainer-filled-sections nil
-  "Whether to fill section headers in Apptainer files.")
+  "Fill section headers in Apptainer definition files? Default to nil.")
 
 (defvar apptainer-boxed-faces nil
-  "Whether to box section headers and header keywords in Apptainer files.")
+  "Draw a box around both section headers and header keywords in Apptainer files?
+Defaults to nil.")
 
 (defvar apptainer-filled-faces nil
-  "Whether to fill section headers and header keywords in Apptainer files.")
+  "Fill both section headers and header keywords in Apptainer definition files?
+Defaults to nil.")
 
 (defvar apptainer-boxed-links nil
-   "Whether to draw a box around URLs in Apptainer files.
-Defaults to non-nil. If nil, URLs will be underlined.")
+   "Draw a box around URLs in Apptainer files? Defaults to nil.")
 
 
 
