@@ -40,126 +40,103 @@
 
 ;;;; Define variables
 
+(defvar apptainer-bold-headers nil
+  "Bold header keywords in Apptainer definitino files? Defaults to nil.")
+
+(defvar apptainer-italic-headers nil
+  "Italicize header keywords in Apptainer definitino files? Defaults to nil.")
+
 (defvar apptainer-boxed-headers nil
-  "Whether to draw a box around header keywords in Apptainer files.")
+  "Draw a box around header keywords in Apptainer definition files?
+Defaults to nil.")
 
 (defvar apptainer-filled-headers nil
-  "Whether to fill header keywords in Apptainer files.")
+  "Fill header keywords in Apptainer definition files? Defaults to nil.")
+
+(defvar apptainer-bold-sections nil
+  "Bold section headers in Apptainer definition files? Defaults to nil.")
+
+(defvar apptainer-italic-sections nil
+  "Italicize section headers in Apptainer definition files? Defaults to nil.")
 
 (defvar apptainer-boxed-sections nil
-  "Whether to draw a box around section headers in Apptainer files.")
+  "Draw a box around section headers in Apptainer definition files?
+Defaults to nil.")
 
 (defvar apptainer-filled-sections nil
-  "Whether to fill section headers in Apptainer files.")
-
-(defvar apptainer-boxed-faces nil
-  "Whether to box section headers and header keywords in Apptainer files.")
-
-(defvar apptainer-filled-faces nil
-  "Whether to fill section headers and header keywords in Apptainer files.")
+  "Fill section headers in Apptainer definition files? Default to nil.")
 
 (defvar apptainer-boxed-links nil
-   "Whether to draw a box around URLs in Apptainer files.
-Defaults to non-nil. If nil, URLs will be underlined.")
+  "Draw a box around URLs in Apptainer files? Defaults to nil.")
 
+(defvar apptainer-italic-retriever nil
+  "Italicize `$`. Typically used for retrieving environmental variables.
+Defaults to nil.")
 
 
 ;;;; Define faces
 
 (defface apptainer-header-keyword-face
-  '((t :inherit font-lock-keyword-face :weight bold))
-  "Face for Apptainer headers."
-  :group 'apptainer-faces)
-
-(defface apptainer-boxed-header-keyword-face
-  '((t :inherit apptainer-header-keyword-face :box t))
-  "Face for boxed Apptainer headers."
-  :group 'apptainer-faces)
-
-(defface apptainer-filled-header-keyword-face
-  '((t :inherit font-lock-keyword-face :inverse-video t))
+  '((t :inherit font-lock-keyword-face))
   "Face for Apptainer headers."
   :group 'apptainer-faces)
 
 (defface apptainer-section-face
-  '((t :inherit font-lock-constant-face :weight bold))
+  '((t :inherit font-lock-constant-face))
   "Face for Apptainer section headings."
   :group 'apptainer-faces)
 
-(defface apptainer-boxed-section-face
-  '((t :inherit apptainer-section-face :box t))
-  "Face for boxed Apptainer section headings."
-  :group 'apptainer-faces)
-
-(defface apptainer-filled-section-face
-  '((t :inherit apptainer-section-face :inverse-video t))
-  "Face for filled Apptainer section headings."
-  :group 'apptainer-faces)
-
-(defface apptainer-boxed-link-face
-  '((t :inherit default :box t))
-  "Face for URLs. Boxed."
-  :group 'apptainer-faces)
-
-(defface apptainer-underline-link-face
-  '((t :inherit link :underline t))
+(defface apptainer-link-face
+  '((t :inherit link))
   "Face for URLs. Underlined."
   :group 'apptainer-faces)
 
 (defface apptainer-retriever-face
-  '((t :inherit font-lock-builtin-face :slant italic))
+  '((t :inherit font-lock-builtin-face))
   "Face for `$` indicating environmental variable retrieval."
   :group 'apptainer-faces)
 
 
-;;;; Define functions
+;;;; Set face options
 
-(defun apptainer--check-face-conflicts ()
-  "Check for conflicting Apptainer face settings."
-  (if (or (and apptainer-boxed-headers (or apptainer-filled-headers apptainer-filled-faces)))
-      (error "If \"apptainer-boxed-headers\" is non-nil, both \"apptainer-filled-headers\" and \"apptainer-filled-faces\" must be nil")
-    nil)
-  (if (or (and apptainer-boxed-sections (or apptainer-filled-sections apptainer-filled-faces)))
-      (error "If \"apptainer-boxed-sections\" is non-nil, both \"apptainer-filled-sections\" and \"apptainer-filled-faces\" must be nil")
-    nil)
-  (if (or (and apptainer-filled-headers (or apptainer-boxed-headers apptainer-boxed-faces)))
-      (error "If \"apptainer-filled-headers\" is non-nil, both \"apptainer-boxed-headers\" and \"apptainer-boxed-faces\" must be nil")
-    nil)
-  (if (or (and apptainer-filled-sections (or apptainer-boxed-sections apptainer-boxed-faces)))
-      (error "If \"apptainer-filled-sections\" is non-nil, both \"apptainer-boxed-sections\" and \"apptainer-boxed-faces\" must be nil")
-    nil)
-  (if (and apptainer-boxed-faces apptainer-filled-faces)
-      (error "If \"apptainer-boxed-faces\" is non-nil, \"apptainer-filled-faces\" must be nil, or vice versa")
-    nil))
+(if apptainer-bold-headers
+        (set-face-attribute 'apptainer-header-keyword-face nil :bold t))
+
+(if apptainer-italic-headers
+        (set-face-attribute 'apptainer-header-keyword-face nil :italic t))
+
+(if apptainer-boxed-headers
+        (set-face-attribute 'apptainer-header-keyword-face nil :box t))
+
+(if apptainer-filled-headers
+        (set-face-attribute 'apptainer-header-keyword-face nil :inverse-video t))
+
+(if apptainer-bold-sections
+        (set-face-attribute 'apptainer-section-face nil :bold t))
+
+(if apptainer-italic-sections
+        (set-face-attribute 'apptainer-section-face nil :italic t))
+
+(if apptainer-boxed-sections
+        (set-face-attribute 'apptainer-section-face nil :box t))
+
+(if apptainer-filled-sections
+        (set-face-attribute 'apptainer-section-face nil :inverse-video t))
+
+(if apptainer-boxed-links
+        (set-face-attribute 'apptainer-link-face nil :box t))
+
+(if apptainer-italic-retriever
+        (set-face-attribute 'apptainer-retriever-face nil :italic t))
 
 
-;;;; Define font-lock keywords and set face options
-
-(apptainer--check-face-conflicts)
-
-(defconst apptainer-header-keyword-face
-  (if (or apptainer-boxed-headers apptainer-boxed-faces)
-      'apptainer-boxed-header-keyword-face
-    (or apptainer-filled-headers apptainer-filled-faces)
-        'apptainer-filled-header-keyword-face
-        'apptainer-header-keyword-face))
-
-(defconst apptainer-section-face
-  (if (or apptainer-boxed-sections apptainer-boxed-faces)
-      'apptainer-boxed-section-face
-    (or apptainer-filled-sections apptainer-filled-faces)
-        'apptainer-filled-section-face
-        'apptainer-section-face))
-
-(defconst apptainer-link-face
-  (if apptainer-boxed-links 'apptainer-boxed-link-face 'apptainer-underline-link-face))
+;;;; Define font-lock keywords
 
 (defconst apptainer-mode-font-lock-keywords
-  '(("^[[:alnum:]]+:" . apptainer-header-keyword-face)
-    ("^%[[:alnum:]]+" . apptainer-section-face)
-    ("\\(\\(https\\|http\\)://\\S-+\\)\\|\\(\\S-+\\@\\S-+\\.[[:alpha:]]+\\)" . apptainer-link-face)
+  '(("^[[:alnum:]]+:" . 'apptainer-header-keyword-face)
+    ("^%[[:alnum:]]+" . 'apptainer-section-face)
+    ("\\(\\(https\\|http\\)://\\S-+\\)\\|\\(\\S-+\\@\\S-+\\.[[:alpha:]]+\\)" . 'apptainer-link-face)
     ("\\(\\$\\)" . 'apptainer-retriever-face)))
-
 
 ;;;; Define mode
 
