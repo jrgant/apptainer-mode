@@ -43,6 +43,9 @@
 (defvar apptainer-bold-headers nil
   "Bold header keywords in Apptainer definitino files? Defaults to nil.")
 
+(defvar apptainer-italic-headers nil
+  "Italicize header keywords in Apptainer definitino files? Defaults to nil.")
+
 (defvar apptainer-boxed-headers nil
   "Draw a box around header keywords in Apptainer definition files?
 Defaults to nil.")
@@ -52,6 +55,9 @@ Defaults to nil.")
 
 (defvar apptainer-bold-sections nil
   "Bold section headers in Apptainer definition files? Defaults to nil.")
+
+(defvar apptainer-italic-sections nil
+  "Italicize section headers in Apptainer definition files? Defaults to nil.")
 
 (defvar apptainer-boxed-sections nil
   "Draw a box around section headers in Apptainer definition files?
@@ -63,7 +69,7 @@ Defaults to nil.")
 (defvar apptainer-boxed-links nil
   "Draw a box around URLs in Apptainer files? Defaults to nil.")
 
-(defvar apptainer-italicize-retriever nil
+(defvar apptainer-italic-retriever nil
   "Italicize `$`. Typically used for retrieving environmental variables.
 Defaults to nil.")
 
@@ -96,6 +102,9 @@ Defaults to nil.")
 (if apptainer-bold-headers
         (set-face-attribute 'apptainer-header-keyword-face nil :bold t))
 
+(if apptainer-italic-headers
+        (set-face-attribute 'apptainer-header-keyword-face nil :italic t))
+
 (if apptainer-boxed-headers
         (set-face-attribute 'apptainer-header-keyword-face nil :box t))
 
@@ -104,6 +113,9 @@ Defaults to nil.")
 
 (if apptainer-bold-sections
         (set-face-attribute 'apptainer-section-face nil :bold t))
+
+(if apptainer-italic-sections
+        (set-face-attribute 'apptainer-section-face nil :italic t))
 
 (if apptainer-boxed-sections
         (set-face-attribute 'apptainer-section-face nil :box t))
@@ -114,7 +126,7 @@ Defaults to nil.")
 (if apptainer-boxed-links
         (set-face-attribute 'apptainer-link-face nil :box t))
 
-(if apptainer-italicize-retriever
+(if apptainer-italic-retriever
         (set-face-attribute 'apptainer-retriever-face nil :italic t))
 
 
