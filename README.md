@@ -21,7 +21,7 @@ To download the **release** version, download it from the Releases section and u
 To download the **development** version, run the following snippet, filling in the desired destination path:
 
 ``` bash
-git clone https://github.com/jrgant/apptainer-mode </path/to/destination>
+git clone git@github.com:jrgant/apptainer-mode </path/to/destination>
 ```
 
 In either case, add `apptainer-mode` using one of the following:
