@@ -61,16 +61,15 @@ If you use the `load-file` method above, set these variables before loading the 
       apptainer-boxed-sections t)
 ```
 
-To further customize fonts, use `set-face-attribute`.
-
-``` emacs-lisp
-(set-face-attribute 'apptainer-section-face nil :underline t :foreground "red")
-```
-
 
 | Boxed Faces                           | Filled Faces                           |
 |:-------------------------------------:|:--------------------------------------:|
 | <img src="example-boxed-faces.png" /> | <img src="example-filled-faces.png" /> |
 
+To further customize fonts, use `set-face-attribute`.
+
+``` emacs-lisp
+(set-face-attribute 'apptainer-section-face nil :underline t :foreground "red")
+```
 
 
